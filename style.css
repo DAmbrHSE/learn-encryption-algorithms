@@ -1,0 +1,335 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --error: #f64b25;
+    --success: #36ec4f;
+    --bg-success: #3abb4b;
+    --sidemenu-size: 250px;
+    --content-size: 750px;
+}
+
+:root[theme="dark"] {
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --text-tetriary: #21262d;
+    --border-color: #30363d;
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --accent: #58a6ff;
+    --accent-2: #8050f9;
+}
+
+:root[theme="light"] {
+    --text-primary: #0f0f0f;
+    --text-secondary: #383a3d;
+    --text-tetriary: #8e96a1;
+    --border-color: #a9a9a9;
+    --bg-primary: #f6f8fb;
+    --bg-secondary: #bdcee9;
+    --bg-tertiary: #cae2f8;
+    --accent: #0875f2;
+    --accent-2: #9535e3;
+}
+
+
+body {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    padding: 20px 4px 4px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidemenu {
+    width: var(--sidemenu-size);
+    min-height: 100vh;
+    padding: 5px 20px;
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.sidemenu h2 {
+    font-size: 17px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidemenu ul {
+    list-style: none;
+}
+.sidemenu li {
+    margin-bottom: 8px;
+}
+.sidemenu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+    display: block;
+}
+
+.sidemenu a:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--accent);
+}
+
+.sidemenu a.active {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+}
+
+.sidemenu a.disabled {
+    color: var(--text-tetriary);
+    pointer-events: none;
+}
+
+h1 {
+    margin: 2px;
+}
+
+a {
+    color: var(--accent);
+}
+
+.stageHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+.stageNumber {
+    margin: 5px;
+    background-color: var(--bg-tertiary);
+    padding: 8px 16px;
+    border-radius: 2px;
+}
+
+.buttonsArea {
+    margin: 10px;
+}
+
+button {
+    margin: 3px 5px;
+    background-color:  var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 8px 16px;
+    color: var(--accent);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+}
+
+button:disabled {
+    color: var(--text-tetriary);
+    border-color: var(--border-color);
+    cursor: not-allowed;
+}
+
+button.action {
+    color: var(--bg-primary);
+    background-color: var(--success);
+    border-color: var(--success);
+}
+
+button.action:hover:not(:disabled) {
+    background-color: var(--bg-success);
+}
+
+.stageContent {
+    overflow-y: scroll;
+}
+
+p {
+    max-width: var(--content-size);
+}
+
+.tableDiv {
+    overflow-x: auto;
+    width: var(--content-size);
+}
+
+.pow {
+    font-size: .7em;
+    top: -.5em;
+    position: relative;
+}
+
+.low {
+    font-size: .7em;
+    top: .3em;
+    position: relative;
+}
+
+input {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 2px 6px;
+    margin: 2px;
+}
+
+.answer {
+    margin: 3px;
+    border: 3px solid;
+    border-color: var(--error);
+}
+
+.answer.correct {
+    border-color: var(--success);
+}
+
+textarea {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 2px 6px;
+    width: 100%;
+    height: 200px;
+    max-width: var(--content-size);
+
+    box-sizing: border-box;
+    margin: 2px;
+}
+
+select {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 2px 6px;
+    margin: 2px;
+}
+
+table {
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid var(--border-color);
+}
+
+.textPreviewHeader {
+    display: block;
+    width: 100%;
+    max-width: var(--content-size);
+    padding: 2px 6px;
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 0px;
+    cursor: pointer;
+
+    box-sizing: border-box;
+    user-select: none;
+    margin: 2px;
+}
+
+.textPreviewArrow {
+    color: var(--accent);
+    display: inline-block;
+    transition: color 0.2s, transform 0.2s;
+    user-select: none;
+}
+
+.textPreviewHeader:hover .textPreviewArrow {
+    color: var(--text-primary);
+}
+
+div.opened .textPreviewHeader .textPreviewArrow {
+    transform: rotate(90deg);
+}
+
+div.opened .textPreviewHeader {
+    margin-bottom: 0px;
+}
+
+.textPreviewContent {
+    background-color: var(--bg-secondary);
+    width: 100%;
+    max-width: var(--content-size);
+    padding: 0 6px;
+    border: 0;
+
+    transition: max-height 0.2s;
+    overflow-y: auto;
+    max-height: 0px;
+
+    box-sizing: border-box;
+    margin: 2px;
+    margin-top: 0px;
+}
+
+div.opened .textPreviewContent {
+    padding: 2px 6px;
+    max-height: 400px;
+}
+
+div .textPreviewContent .textarea {
+    display: none;
+}
+
+div.opened .textPreviewContent .textarea {
+    display: unset;
+}
+
+table.borderless td {
+    border: 0px;
+}
+
+td.borderless {
+    border: 0px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    :root {
+        --sidemenu-size: calc(min(250px, max(160px, 100vw - 650px)));
+        --content-size: calc(100vw - 30px - min(250px, max(160px, 100vw - 650px)));
+    }
+
+    .stageHeader {
+        flex-direction: column;
+    }
+
+    .buttonsArea {
+        flex-direction: column;
+    }
+
+    .buttonsArea button {
+        width: 100%;
+    }
+    
+    button.mainMenuNav {
+        width: 30%;
+    }
+}
