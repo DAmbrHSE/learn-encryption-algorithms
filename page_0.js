@@ -255,7 +255,7 @@ const pageContent = [
         stageValues: {
             FREQ_sample_called_args_1: {hasField: false, isNeeded: true, startValue: [] },
             FREQ_sample_text_ru_0: {hasField: true, isNeeded: false, startValue: "" },
-            FREQ_sample_text_ru_1: {hasField: true, isNeeded: false, startValue: "Theory" }
+            FREQ_sample_text_ru_1: {hasField: true, isNeeded: false, startValue: "RU_Theory" }
         },
         content: `
             <p>Можно заметить, что у разных текстов всё же отличаются графики частот. Здесь вы можете сравнить несколько разных текстов, и "теоретическую частотность" - 
@@ -300,7 +300,7 @@ const pageContent = [
             }
 
             var freqResultA, freqResultB, aHidden = false, bHidden = false;
-            if (selectA.value != "Theory") {
+            if (selectA.value != "RU_Theory") {
                 var textA = getSampleText(selectA.value);
                 freqResultA = freqAnalysis(textA, getRussianAlphabet());
                 document.getElementById("FREQ_text_preview_0").innerHTML = "<p>"+ textA +"</p>";
@@ -308,7 +308,7 @@ const pageContent = [
                 aHidden = true;
                 freqResultA = getTheoryFreqAnalysisRU();
             }
-            if (selectB.value != "Theory") {
+            if (selectB.value != "RU_Theory") {
                 var textB = getSampleText(selectB.value);
                 freqResultB = freqAnalysis(textB, getRussianAlphabet());
                 document.getElementById("FREQ_text_preview_1").innerHTML = "<p>"+ textB +"</p>";

@@ -6,7 +6,6 @@
 :root {
     --error: #f64b25;
     --success: #36ec4f;
-    --bg-success: #3abb4b;
     --sidemenu-size: 250px;
     --content-size: 750px;
 }
@@ -21,6 +20,7 @@
     --bg-tertiary: #21262d;
     --accent: #58a6ff;
     --accent-2: #8050f9;
+    --bg-success: #3abb4b;
 }
 
 :root[theme="light"] {
@@ -33,6 +33,7 @@
     --bg-tertiary: #cae2f8;
     --accent: #0875f2;
     --accent-2: #9535e3;
+    --bg-success: #8ef49c;
 }
 
 

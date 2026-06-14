@@ -245,7 +245,7 @@ const pageContent = [
         freePracticeName: "Частотный анализ, шифр Виженера: практика",
         stageValues: {
             VIZH_FREQ_sandbox_key: { hasField: true, isNeeded: false, startValue: "" },
-            VIZH_FREQ_sandbox_text: { hasField: true, isNeeded: false, startValue: "Theory" },
+            VIZH_FREQ_sandbox_text: { hasField: true, isNeeded: false, startValue: "RU_Theory" },
             VIZH_FREQ_sandbox_M: { hasField: true, isNeeded: false, startValue: 0 },
             VIZH_FREQ_sandbox_src: { hasField: true, isNeeded: false, startValue: "" },
             VIZH_FREQ_sandbox_K: { hasField: true, isNeeded: false, startValue: 0 }
@@ -323,11 +323,12 @@ const pageContent = [
         onUpdate() {
             if (this.localState["VIZH_FREQ_sandbox_text_cached_Name"] != this.localState["VIZH_FREQ_sandbox_text"]) {
                 this.localState["VIZH_FREQ_sandbox_text_cached_Name"] = this.localState["VIZH_FREQ_sandbox_text"];
-                if (this.localState["VIZH_FREQ_sandbox_text"] == "Theory") {
+                if (this.localState["VIZH_FREQ_sandbox_text"] == "RU_Theory") {
                     this.localState["VIZH_FREQ_sandbox_text_cached_Freq"] = getTheoryFreqAnalysisRU();
                 } else {
                     var text = getSampleText(this.localState["VIZH_FREQ_sandbox_text"]);
-                    this.localState["VIZH_FREQ_sandbox_text_cached_Freq"] = freqAnalysis(text, getAlphabet(text[0]));
+                    var alphabet = this.localState["VIZH_FREQ_sandbox_text"].slice(0, 2) == "RU" ? getRussianAlphabet() : getEnglishAlphabet();
+                    this.localState["VIZH_FREQ_sandbox_text_cached_Freq"] = freqAnalysis(text, alphabet);
                     text = null;
                 }
             }

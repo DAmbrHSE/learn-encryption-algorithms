@@ -146,25 +146,25 @@ function renderAlphabet(string) {
 function getSampleTextListRU()
 {
     return [
-        {id: "ОтцыИДети", name:"Отцы и дети - Иван Тургенев, отрывок"},
-        {id: "ХозяйкаМеднойГоры", name:"Хозяйка медной горы - Павел Бажов"},
-        {id: "МастерИМаргарита_1", name:"Мастер и Маргарита - Михаил булгаков, отрывок"},
-        {id: "ДваКапитана", name:"Два капитана - Вениамин Каверин, отрывок"}
+        {id: "RU_ОтцыИДети", name:"Отцы и дети - Иван Тургенев, отрывок"},
+        {id: "RU_ХозяйкаМеднойГоры", name:"Хозяйка медной горы - Павел Бажов"},
+        {id: "RU_МастерИМаргарита_1", name:"Мастер и Маргарита - Михаил булгаков, отрывок"},
+        {id: "RU_ДваКапитана", name:"Два капитана - Вениамин Каверин, отрывок"}
     ];
 }
 
 function getSampleTextListRUWithTheory()
 {
     var array = getSampleTextListRU();
-    array.push({id:"Theory", name:"Теоритические данные"});
+    array.push({id:"RU_Theory", name:"Теоритические данные"});
     return array;
 }
 
 function getSampleTextListEN()
 {
     return [
-        {id: "PortraitOfDorianGray", name:"Портрет Дориана Грея - Оскар Уайлд, отрывок"},
-        {id: "Frankenstine", name:"Франкенштейн - Мерри Шелли, отрывок"},
+        {id: "EN_PortraitOfDorianGray", name:"Портрет Дориана Грея - Оскар Уайлд, отрывок"},
+        {id: "EN_Frankenstine", name:"Франкенштейн - Мерри Шелли, отрывок"},
     ];
 }
 
@@ -407,8 +407,8 @@ function calcVizhM(text) {
                 for (var j = i + 1; j < indexes.length; j++) {
                     var distance = indexes[j] - indexes[i];
 
-                for (var m = 1; m <= maxM; m++) {
-                    if ((m == 1 && distance == 1) || (m != 1 && distance % m == 0)) {
+                    for (var m = 1; m <= maxM; m++) {
+                        if ((m == 1 && distance == 1) || (m != 1 && distance % m == 0)) {
                             candidates[m - 1].score += length - 1;
                         }
                     }
